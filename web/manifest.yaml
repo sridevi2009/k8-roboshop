@@ -110,13 +110,6 @@ spec:
         tier: web
     spec:
       containers:
-      volumes:
-      - name: nginx-conf
-        configMap:
-          name: web
-          items:
-          - key: nginx.conf
-            path: nginx.conf 
       - name: web
         image: joindevops/web:v1
         imagePullPolicy: Always
@@ -125,6 +118,13 @@ spec:
           mountPath: /etc/nginx/nginx.conf
           subpath: nginx.conf
           readOnly: true
+      volumes:
+      - name: nginx-conf
+        configMap:
+          name: web
+          items:
+            - key: nginx.conf
+              path: nginx.conf     
         # envFrom:
         # - configMapRef:
         #     name: web
