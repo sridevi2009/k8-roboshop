@@ -25,9 +25,9 @@ spec:
       - name: redis
         image: redis
         imagePullPolicy: Always
-        envFrom:
-        - configMapRef:
-            name: redis
+        # envFrom:
+        # - configMapRef:
+        #     name: redis
 ---
 apiVersion: v1
 kind: Service
